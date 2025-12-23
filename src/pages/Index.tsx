@@ -347,7 +347,7 @@ const Index = () => {
                 <div className="flex items-start gap-3">
                   <Icon name="MapPin" size={24} className="text-primary mt-1" />
                   <div>
-                    <p className="font-semibold">г. Москва</p>
+                    <p className="font-semibold">г. Гатчина, Ленинградская обл.</p>
                     <p className="text-muted-foreground">ул. Котовая, 12</p>
                   </div>
                 </div>
