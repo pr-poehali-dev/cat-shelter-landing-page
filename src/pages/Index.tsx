@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('hero');
+  const [selectedPet, setSelectedPet] = useState<number | null>(null);
 
   const pets = [
     {
@@ -161,9 +162,9 @@ const Index = () => {
                       <Badge key={trait} variant="secondary">{trait}</Badge>
                     ))}
                   </div>
-                  <Dialog>
+                  <Dialog open={selectedPet === pet.id} onOpenChange={(open) => setSelectedPet(open ? pet.id : null)}>
                     <DialogTrigger asChild>
-                      <Button className="w-full gap-2">
+                      <Button className="w-full gap-2" onClick={() => setSelectedPet(pet.id)}>
                         <Icon name="User" size={18} />
                         Познакомиться
                       </Button>
@@ -186,7 +187,7 @@ const Index = () => {
                               <Badge key={trait} variant="secondary" className="text-sm">{trait}</Badge>
                             ))}
                           </div>
-                          <Button className="w-full gap-2" size="lg">
+                          <Button className="w-full gap-2" size="lg" onClick={() => alert(`Заявка на усыновление ${pet.name} отправлена!`)}>
                             <Icon name="Heart" size={20} />
                             Подать заявку на усыновление
                           </Button>
